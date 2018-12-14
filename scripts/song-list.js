@@ -1,3 +1,5 @@
+// edited line 15: wrapped (song.duration) with player.prettyTime post checkpoint 6.11
+
 {
   album.songs.forEach( (song, index) => {
     song.element = $(`
@@ -15,6 +17,7 @@
     `);
 
     song.element.on('click', event => {
+// was player.playPause(song);
       helper.playPauseAndUpdate(song);
       $('button#play-pause').attr('playState', player.playState);
     });

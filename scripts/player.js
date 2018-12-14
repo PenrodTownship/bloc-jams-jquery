@@ -48,6 +48,7 @@ class Player {
     this.soundObject.setVolume(percent);
   }
 
+// added codeblock post checkpoint 6.11
   prettyTime (timeInSeconds) {
     return Math.floor(timeInSeconds / 60 + ':' + ('0' + Math.floor(timeInSeconds % 60)).slice(-2);
   }
