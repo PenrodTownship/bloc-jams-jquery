@@ -1,9 +1,7 @@
-// new line post checkpoint 6.11
-$( document ).ready(function ()
 
 {
-    $('button#play-pause').on('click', function(){
-// was player.playPause();
+    $('button#play-pause').on('click', function() {
+// 2.4.d was player.playPause();
       helper.playPauseAndUpdate();
       $(this).attr('playState', player.playState);
     });
@@ -16,7 +14,7 @@ $( document ).ready(function ()
       if (nextSongIndex >= album.songs.length) { return; }
 
       const nextSong = album.songs[nextSongIndex];
-// was player.playPause(nextSong);
+// 2.4.d was player.playPause(nextSong);
       helper.playPauseAndUpdate(nextSong);
     });
 
@@ -28,7 +26,7 @@ $( document ).ready(function ()
       if (prevSongIndex < 0) { return; }
 
       const prevSong = album.songs[prevSongIndex];
-// was player.playPause(prevSong);
+// 2.4.d was player.playPause(prevSong);
       helper.playPauseAndUpdate(prevSong);
     });
 
@@ -41,17 +39,14 @@ $( document ).ready(function ()
       const currentTime = player.getTime();
       const duration = player.getDuration();
       const percent = (currentTime / duration) * 100;
-// was ... .text( currentTime ) ... wrapped it with ( player.prettyTime );
-      $('#time-control .current-time').text( player.prettyTime(currentTime) );
+// was ... .text( currentTime ) ... wrapped it with ( helper.prettyTime ); - CORRECT
+      $('#time-control .current-time').text( helper.prettyTime(currentTime) );
       $('#time-control input').val(percent);
-// new line post checkpoint 6.11
-      $('#time-control .total-time').text( player.prettyTime(duration));
     }, 1000);
 
-// new codeblock post checkpoint 6.11
+// 1 new codeblock post checkpoint 6.11 - CORRECT
     $('#volume-control input').on('input', function (event) {
       player.setVolume(event.target.value);
     });
 
-  }
-)
+}
